@@ -1,0 +1,156 @@
+﻿<!DOCTYPE History_v1.0>
+<History>
+  <!--=============================================================================================================================-->
+  <Ticker Name="SP500"  Section="Фьючерсы США"    Code="SandP-Fut*"       />
+  <Ticker Name="MICEX"  Section="Мировые Индексы" Code="MICEX"            />
+  <Ticker Name="RTSI"   Section="Мировые Индексы" Code="RTSI"             />
+  <Ticker Name="RIU2"   Section="Фьючерсы ФОРТС"  Code="RTS-9.12(RIU2)"  />
+  <Ticker Name="SBER"   Section="ММВБ Акции"      Code="Сбербанк"         />
+  <Ticker Name="SBRF"   Section="Фьючерсы ФОРТС"  Code="SBRF-12.12(SRZ2)" />
+
+  <!--=============================================================================================================================-->  
+  <TickersGroup Name="All">
+    <Ticker>SP500</Ticker>
+    <Ticker>MICEX</Ticker>
+    <Ticker>RTSI</Ticker>
+    <Ticker>RIU2</Ticker>
+    <Ticker>SBER</Ticker>
+    <Ticker>SBRF</Ticker>
+  </TickersGroup>
+  
+  <TickersGroup Name="Full">
+    <Ticker>RIU2</Ticker>
+    <Ticker>SBER</Ticker>
+    <Ticker>SBRF</Ticker>
+  </TickersGroup>
+
+  <!--=============================================================================================================================-->
+  <FilesGroup Name="Main">
+    <TickersGroup>All</TickersGroup>
+    <TimeFrame>D</TimeFrame>
+    <TimeFrame>M1</TimeFrame>
+  </FilesGroup>
+  
+  <FilesGroup Name="Ticks">
+    <TickersGroup>Full</TickersGroup>
+    <TimeFrame>T</TimeFrame>
+  </FilesGroup>
+  
+  <FilesGroup Name="MainCache">
+    <TickersGroup>All</TickersGroup>
+    <TimeFrame>MN</TimeFrame>
+    <TimeFrame>W</TimeFrame>
+    <TimeFrame>H4</TimeFrame>
+    <TimeFrame>H1</TimeFrame>
+    <TimeFrame>M15</TimeFrame>
+    <TimeFrame>M5</TimeFrame>
+  </FilesGroup>
+  
+  <FilesGroup Name="TicksCache">
+    <TickersGroup>Full</TickersGroup>
+    <TimeFrame>S15</TimeFrame>
+    <TimeFrame>S5</TimeFrame>
+    <TimeFrame>S1</TimeFrame>
+  </FilesGroup>
+  
+  <!--=============================================================================================================================-->  
+  <StockFileManager Name="TextFileManager">
+	<FilePath>text</FilePath>
+	<DateFormat>yyMMdd</DateFormat>
+	<DateRegEx>(\d{6})</DateRegEx>	
+    <FileName>{Ticker}_{TimeFrame}_{Start}_{End}.txt</FileName>
+    <FilesGroup>Main</FilesGroup>
+    <FilesGroup>Ticks</FilesGroup>
+    <Size>10000</Size>
+  </StockFileManager>
+
+  <StockFileManager Name="DataFileManager">
+	<FilePath>data</FilePath>
+	<DateFormat>yyMMdd</DateFormat>
+	<DateRegEx>(\d{6})</DateRegEx>	
+    <FileName>{Ticker}_{TimeFrame}_{Start}_{End}.dat</FileName>
+    <FilesGroup>Main</FilesGroup>
+    <FilesGroup>Ticks</FilesGroup>
+    <Size>1000000000</Size>
+  </StockFileManager>
+  
+  <StockFileManager Name="CacheFileManager">
+	<FilePath>cache</FilePath>
+	<DateFormat>yyMMdd</DateFormat>
+	<DateRegEx>(\d{6})</DateRegEx>	
+    <FileName>{Ticker}_{TimeFrame}_{Start}_{End}.cache</FileName>
+    <FilesGroup>MainCache</FilesGroup>
+    <FilesGroup>TicksCache</FilesGroup>
+    <Size>1000000000</Size>
+  </StockFileManager>
+  
+  <!--=============================================================================================================================-->
+  <TimeFramesGroup Name="Daily">
+    <TimeFrame>MN</TimeFrame>
+    <TimeFrame>W</TimeFrame>
+    <TimeFrame>D</TimeFrame>
+  </TimeFramesGroup>
+    
+  <TimeFramesGroup Name="Bars">
+    <TimeFrame>H4</TimeFrame>
+    <TimeFrame>H1</TimeFrame>
+    <TimeFrame>M15</TimeFrame>
+    <TimeFrame>M5</TimeFrame>
+    <TimeFrame>M1</TimeFrame>
+  </TimeFramesGroup>
+  
+  <TimeFramesGroup Name="Ticks">
+    <TimeFrame>S15</TimeFrame>
+    <TimeFrame>S5</TimeFrame>
+    <TimeFrame>S1</TimeFrame>
+  </TimeFramesGroup>
+
+  <!--=============================================================================================================================-->
+  <Layout Name="Daily">
+    <Bollinger Period="20" EMA="0" Color="#00FF1CFF" />
+    <EMA Period="200" Color="#00FF1CFF" />
+    <SMA Period="50" Color="#00FF1CFF" />
+    <Price>Candle</Price>
+  </Layout>
+  
+  <Layout Name="Bars">
+    <Bollinger Period="13" EMA="1" Color="#00FF1CFF" />
+    <EMA Period="169" Color="#00FF1CFF" />
+    <EMA Period="144" Color="#00FF1CFF" />
+    <SMA Period="50" Color="#00FF1CFF" />
+    <EMA Period="21" Color="#00FF1CFF" />
+    <Price>Bar</Price>
+  </Layout>
+  
+  <!--=============================================================================================================================-->
+  <Charts Name="Daily">
+    <ChartName>{Ticker}_{TimeFrame}</ChartName>
+    <Tickers>All</Tickers>
+    <TimeFramesGroup>Daily</TimeFramesGroup>
+    <Layout>Daily</Layout>
+  </Charts>
+  
+  <Charts Name="Bars">
+    <ChartName>{Ticker}_{TimeFrame}</ChartName>
+    <Tickers>All</Tickers>
+    <TimeFramesGroup>Bars</TimeFramesGroup>
+    <Layout>Bars</Layout>
+  </Charts>
+
+  <Charts Name="Ticks">
+    <ChartName>{Ticker}_{TimeFrame}</ChartName>
+    <Tickers>Full</Tickers>
+    <TimeFramesGroup>Ticks</TimeFramesGroup>
+    <Layout>Bars</Layout>
+  </Charts>
+  
+  <!--=============================================================================================================================-->
+  <Line Name="RIU2_M5_1" Ticker="RIU2" TimeFrame="M5" Start="2012/01/01 20:01:01" End="2012/09/01 20:01:01">
+    <Time1>2012/09/01 20:01:01</Time1>
+    <Time2>2012/09/01 20:01:01</Time2>
+    <Val1>144000</Val1>
+    <Val2>144000</Val2>
+  </Line>
+
+  <!--=============================================================================================================================-->
+</History>
