@@ -22,11 +22,13 @@ public:
 //    virtual bool write(HistoryTick& tick) = 0;
 //    virtual bool write(HistoryCandle& candle) = 0;
 
+
     QString ticker() const { return m_ticker; }
     TimeFrame timeFrame() const { return m_timeFrame; }
     QDateTime start() const { return m_start; }
     QDateTime end() const { return m_end; }
     bool atEnd() const { return m_file.atEnd(); }
+    void close() { m_file.close(); }
 };
 
 // -----------------------------------------------------------------------------------------------------------

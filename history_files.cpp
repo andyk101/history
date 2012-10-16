@@ -59,6 +59,8 @@ void HistoryTextFileReader::read(HistoryTick& tick)
         throw ErrorBase::create("Invalid header");
 
     QStringList vals = readLine().split(",");
+    if (vals.count()!=6)
+        throw ErrorBase::create("Invalid line");
     m_ticker = vals[0];
     m_timeFrame = strToTimeFrame(vals[1]);
     if (m_timeFrame != TimeFrames::eT)
@@ -78,6 +80,8 @@ void HistoryTextFileReader::read(HistoryCandle& candle)
         throw ErrorBase::create("Invalid header");
 
     QStringList vals = readLine().split(",");
+    if (vals.count()!=9)
+        throw ErrorBase::create("Invalid line");
     m_ticker = vals[0];
     m_timeFrame = strToTimeFrame(vals[1]);
     if (m_timeFrame == TimeFrames::eT)

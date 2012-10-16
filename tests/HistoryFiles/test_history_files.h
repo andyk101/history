@@ -55,6 +55,7 @@ void Test_HistoryFiles::test_fileReader(QString fileName, QString ticker, int ti
     QVERIFY(reader.timeFrame()==TimeFrame(timeFrame));
     QVERIFY(reader.start().toString(DateTime::g_fullHumanFormat)==start);
     QVERIFY(reader.end().toString(DateTime::g_fullHumanFormat)==end);
+    reader.close();
     QFile::remove(fileName);
 }
 
