@@ -68,7 +68,7 @@
 	<FilePath>data</FilePath>
 	<DateFormat>yyMMdd</DateFormat>
 	<DateRegEx>(\d{6})</DateRegEx>	
-    <FileName>{Ticker}_{TimeFrame}_{Start}_{End}.dat</FileName>
+    <FileName>{Ticker}_{TimeFrame}_{Size}_{Start}.dat</FileName>
     <FilesGroup>Main</FilesGroup>
     <FilesGroup>Ticks</FilesGroup>
     <Size>1000000000</Size>

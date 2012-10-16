@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>test_files/GAZP_T_121008_121008.txt</file>
+        <file>test_files/RIZ2_M1_121008_121008.txt</file>
+        <file>test_files/RIZ2_D_121001_121012.txt</file>
+    </qresource>
+</RCC>

@@ -36,14 +36,18 @@ SOURCES += history_app.cpp \
 #    deform_plot.cpp \
 #    deform_table.cpp \
 #    deform_test.cpp \
-    files.cpp
+    files.cpp \
+    history_files.cpp \
+    history_structs.cpp
 
 HEADERS += history_app.h \
     history_dlg.h \
 #    deform_model.h \
 #    deform_plot.h \
 #    deform_table.h \
-    files.h
+    files.h \
+    history_files.h \
+    history_structs.h
 
 OTHER_FILES += \
     read_me.txt \

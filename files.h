@@ -3,6 +3,7 @@
 
 #include <QtCore>
 #include <andyk/core/core_fwd.h>
+#include "history_structs.h"
 
 // -----------------------------------------------------------------------------------------------------------
 template<class Item>
@@ -56,18 +57,6 @@ public:
 // -----------------------------------------------------------------------------------------------------------
 // FilesGroup
 // -----------------------------------------------------------------------------------------------------------
-struct TimeFrames : public Enum
-{
-    enum { eY10, eY, eMN3, eMN, eW, eD, eH4, eH1, eM15, eM5, eM1, eS15, eS5, eS1, eT, eCount };
-
-    TimeFrames() : Enum("TimeFrames")
-    {
-        *this << "Y10" << "Y" << "MN3" << "MN" << "W" << "D" << "H4" << "H1" << "M15" << "M5" << "M1" << "S15" << "S5" << "S1" << "T";
-    }
-};
-typedef EnumItem<TimeFrames> TimeFrame;
-Q_DECLARE_TYPEINFO(TimeFrame, Q_COMPLEX_TYPE|Q_MOVABLE_TYPE);
-
 class FilesGroup
 {
 public:
